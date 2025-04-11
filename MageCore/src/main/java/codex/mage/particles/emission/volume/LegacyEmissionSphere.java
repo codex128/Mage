@@ -34,7 +34,7 @@ public class LegacyEmissionSphere implements EmissionVolume {
     @Override
     public Vector3f getNextPosition(Transform transform) {
         return VfxUtils.getGenerator().nextUnitVector3f()
-                .multLocal(VfxUtils.getGenerator().nextFloat(radius))
+                .multLocal(VfxUtils.getGenerator().nextFloat(0f, radius))
                 .multLocal(transform.getScale())
                 .addLocal(transform.getTranslation());
     }
