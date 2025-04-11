@@ -24,10 +24,8 @@ public class VfxUtils {
     
     /**
      * Gets the shared generator instance.
-     * <p>
-     * Useful for quick'n'dirty randomization.
      * 
-     * @return 
+     * @return random generator
      */
     public static Generator getGenerator() {
         return gen;
@@ -37,8 +35,8 @@ public class VfxUtils {
      * Generates a random vector within a box with
      * the vectors A and B at opposite corners.
      * 
-     * @param a
-     * @param b
+     * @param a vector boundary
+     * @param b vector boundary
      * @return random vector within box
      */
     public static Vector3f random(Vector3f a, Vector3f b) {
