@@ -85,7 +85,7 @@ public class VfxUtils {
      * @return 
      */
     public static Vector3f random(float radius) {
-        return gen.nextUnitVector3f().multLocal(gen.nextFloat(radius));
+        return gen.nextUnitVector3f().multLocal(gen.nextFloat(0f, radius));
     }
     
     /**
@@ -126,7 +126,7 @@ public class VfxUtils {
         store.set(vec).normalizeLocal().multLocal(FastMath.cos(angle));
         tempPlane.setOriginNormal(Vector3f.ZERO, store);
         store.set(tempPlane.getClosestPoint(VfxUtils.gen.nextUnitVector3f()
-                .multLocal(VfxUtils.gen.nextFloat(FastMath.abs(FastMath.sin(angle)))).addLocal(store)));
+                .multLocal(VfxUtils.gen.nextFloat(0f, FastMath.abs(FastMath.sin(angle)))).addLocal(store)));
         return store.normalizeLocal().multLocal(vec.length());
     }
     

@@ -26,7 +26,7 @@ public class PhysicsForceState extends GameAppState {
     @Override
     protected void init(Application app) {
         if (physicsSpace == null) {
-            var bullet = getState(BulletAppState.class);
+            BulletAppState bullet = getState(BulletAppState.class);
             if (bullet == null) {
                 throw new NullPointerException("Unable to locate BulletAppState. Please manually specify the PhysicsSpace.");
             }

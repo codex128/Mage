@@ -40,12 +40,12 @@ public class EmissionTorus implements EmissionVolume {
         Vector3f y = transform.getRotation().mult(axis.get());
         Vector3f x = y.cross(Vector3f.UNIT_Y);
         Vector3f z = y.cross(x);
-        float a = VfxUtils.gen.nextFloat(FastMath.TWO_PI);
-        float b = VfxUtils.gen.nextFloat(FastMath.TWO_PI);
+        float a = VfxUtils.gen.nextFloat(0f, FastMath.TWO_PI);
+        float b = VfxUtils.gen.nextFloat(0f, FastMath.TWO_PI);
         Vector3f major = x.multLocal(FastMath.cos(a)).addLocal(z.multLocal(FastMath.sin(a))).normalizeLocal();
         Vector3f minor = major.mult(FastMath.cos(b)).addLocal(y.multLocal(FastMath.sin(b))).normalizeLocal();
         major.multLocal(majorRadius.get());
-        minor.multLocal(VfxUtils.gen.nextFloat(minorRadius.get()));
+        minor.multLocal(VfxUtils.gen.nextFloat(0f, minorRadius.get()));
         Vector3f origin = center.get();
         if (applyScale.get()) {
             major.multLocal(transform.getScale());
