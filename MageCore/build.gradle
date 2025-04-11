@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'codex.mage'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+project.ext {
+    jmeVer = '3.8.0-beta1'
+    lemurVer = '1.16.0'
+    lemurProtoVer = '1.13.0'
+    boostVer = 'v1.2.3'
+}
+
+dependencies {
+
+    // JMonkeyEngine
+    implementation "org.jmonkeyengine:jme3-core:$jmeVer"
+    implementation "org.jmonkeyengine:jme3-core:$jmeVer:sources"
+    implementation "org.jmonkeyengine:jme3-core:$jmeVer:javadoc"
+
+    // Lemur GUI
+    implementation "com.simsilica:lemur:$lemurVer"
+    implementation "com.simsilica:lemur-proto:$lemurProtoVer"
+
+    // Boost
+    implementation "com.github.codex128:Boost:$boostVer"
+
+}
+
+tasks.register('sourcesJar', Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = 'sources'
+}
+
+tasks.register('javadocJar', Jar) {
+    from javadoc
+    archiveClassifier = 'javadoc'
+}
+
+publishing {
+    publications {
+        LibraryPublication(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
