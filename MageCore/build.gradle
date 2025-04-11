@@ -12,7 +12,7 @@ repositories {
 }
 
 project.ext {
-    jmeVer = '3.7.0-stable'
+    jmeVer = '3.8.0-beta1'
     minieVer = '9.0.1'
     lemurVer = '1.16.0'
     lemurProtoVer = '1.13.0'
