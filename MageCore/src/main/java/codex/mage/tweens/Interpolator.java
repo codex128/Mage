@@ -87,7 +87,7 @@ public interface Interpolator <T> {
      * <p>
      * Supports uninterpolation.
      */
-    public static final Interpolator<Integer> Integer = new Interpolator<>() {
+    public static final Interpolator<Integer> Integer = new Interpolator<Integer>() {
         @Override
         public Integer interpolate(float t, Integer a, Integer b) {
             return (int)((b-a)*t+a);
@@ -103,7 +103,7 @@ public interface Interpolator <T> {
      * <p>
      * Supports uninterpolation.
      */
-    public static final Interpolator<Float> Float = new Interpolator<>() {
+    public static final Interpolator<Float> Float = new Interpolator<Float>() {
         @Override
         public Float interpolate(float t, Float a, Float b) {
             return (b-a)*t+a;
@@ -121,7 +121,7 @@ public interface Interpolator <T> {
      * <p>
      * Supports uninterpolation.
      */
-    public static final Interpolator<Boolean> Boolean = new Interpolator<>() {
+    public static final Interpolator<Boolean> Boolean = new Interpolator<Boolean>() {
         @Override
         public Boolean interpolate(float t, Boolean a, Boolean b) {
             return t <= 0.5f ? a : b;
@@ -135,7 +135,7 @@ public interface Interpolator <T> {
     /**
      * Interpolates between two {@link Vector3f} objects.
      */
-    public static final Interpolator<Vector3f> Vector3f = new Interpolator<>() {
+    public static final Interpolator<Vector3f> Vector3f = new Interpolator<Vector3f>() {
         @Override
         public Vector3f interpolate(float t, Vector3f a, Vector3f b) {
             return b.subtract(a).multLocal(t).addLocal(a);
@@ -154,7 +154,7 @@ public interface Interpolator <T> {
     /**
      * Interpolates between two {@link Vector2f} objects.
      */
-    public static final Interpolator<Vector2f> Vector2f = new Interpolator<>() {
+    public static final Interpolator<Vector2f> Vector2f = new Interpolator<Vector2f>() {
         @Override
         public Vector2f interpolate(float t, Vector2f a, Vector2f b) {
             return b.subtract(a).multLocal(t).addLocal(a);
@@ -173,7 +173,7 @@ public interface Interpolator <T> {
     /**
      * Interpolates between two {@link ColorRGBA} objects.
      */
-    public static final Interpolator<ColorRGBA> Color = new Interpolator<>() {
+    public static final Interpolator<ColorRGBA> Color = new Interpolator<ColorRGBA>() {
         
         @Override
         public ColorRGBA interpolate(float t, ColorRGBA a, ColorRGBA b) {
