@@ -4,8 +4,6 @@
  */
 package codex.mage.force;
 
-import com.jme3.bullet.PhysicsSpace;
-import com.jme3.bullet.objects.PhysicsRigidBody;
 import com.jme3.math.Transform;
 import com.jme3.math.Vector3f;
 import java.util.LinkedList;
@@ -29,22 +27,6 @@ public class ForceSpace extends LinkedList<ForceField> implements ForceField {
             }
         }
         return influenced;
-    }
-    
-    public void applyToPhysicsSpace(PhysicsSpace space, float tpf) {
-        if (isEmpty()) return;
-        for (PhysicsRigidBody r : space.getRigidBodyList()) {
-            r.getPhysicsLocation(tempTransform.getTranslation());
-            r.getPhysicsRotation(tempTransform.getRotation());
-            r.getLinearVelocity(tempLinearVelocity);
-            r.getAngularVelocity(tempAngularVelocity);
-            if (applyInfluence(tempTransform, tempLinearVelocity, tempAngularVelocity, tpf)) {
-                r.setPhysicsLocation(tempTransform.getTranslation());
-                r.setPhysicsRotation(tempTransform.getRotation());
-                r.setLinearVelocity(tempLinearVelocity);
-                r.setAngularVelocity(tempAngularVelocity);
-            }
-        }
     }
     
 }

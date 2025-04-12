@@ -13,9 +13,9 @@ repositories {
 
 project.ext {
     jmeVer = '3.8.0-beta1'
-    minieVer = '9.0.1'
     lemurVer = '1.16.0'
     lemurProtoVer = '1.13.0'
+    heartVer = '9.2.0'
     boostVer = 'v1.2.3'
 }
 
@@ -26,14 +26,12 @@ dependencies {
     implementation "org.jmonkeyengine:jme3-core:$jmeVer:sources"
     implementation "org.jmonkeyengine:jme3-core:$jmeVer:javadoc"
 
-    // Minie
-    implementation "com.github.stephengold:Minie:$minieVer"
-
     // Lemur GUI
     implementation "com.simsilica:lemur:$lemurVer"
     implementation "com.simsilica:lemur-proto:$lemurProtoVer"
 
-    // Boost
+    // utils
+    implementation "com.github.stephengold:Heart:$heartVer"
     implementation "com.github.codex128:Boost:$boostVer"
 
 }
